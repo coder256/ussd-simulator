@@ -20,7 +20,7 @@ export interface NodeParent {
 export interface Node {
   type: 'menu' | 'input' | 'action'
   prompt: string
-  options: Option[]
+  options?: Option[]
   placeholder?: string
   inputType?: 'tel' | 'number' | 'text'
   next?: string

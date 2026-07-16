@@ -7,7 +7,8 @@ export const useUssdStore = defineStore('ussd', () => {
   const currentNode = ref<Node | null>(null)
   const currentService = ref<Service | null>(null)
   const history = ref<Node[]>([])
-  const services = ref<Service[]>(worktree as Service[])
+  // const services = ref<Service[]>(worktree as Service[])
+  const services = ref<Service[]>(JSON.parse(JSON.stringify(worktree)))
   const dialCode = ref<string>('')
 
   const selectService = (service: Service) => {
@@ -23,7 +24,6 @@ export const useUssdStore = defineStore('ussd', () => {
   }
 
   const selectOption = (option: Option) => {
-    console.log('selected option')
     updateDialCode(option.digit)
 
     if (!currentService.value) return

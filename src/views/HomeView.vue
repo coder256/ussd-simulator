@@ -20,7 +20,6 @@ import TheWelcome from '@/components/TheWelcome.vue'
 import DialScreen from '@/components/DialScreen.vue'
 import { useUssdStore } from '@/stores/ussd'
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
 import type { Service } from '@/types'
 import ServiceScreen from '@/components/ServiceScreen.vue'
 
@@ -29,12 +28,7 @@ const { services, currentNode, history } = storeToRefs(ussdStore)
 const { selectService, back, reset } = ussdStore
 
 const selectedService = (service: Service) => {
-  console.log('selected service', service)
+  // console.log('selected service', service)
   selectService(service)
 }
-
-onMounted(() => {
-  console.log('ussd simulator initiated')
-  console.log(services.value)
-})
 </script>
